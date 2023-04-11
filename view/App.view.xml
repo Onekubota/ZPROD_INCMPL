@@ -1,0 +1,155 @@
+<mvc:View xmlns:core="sap.ui.core" controllerName="com.kubota.zprodincmpl.controller.App"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:html="http://www.w3.org/1999/xhtml"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" height="100%">
+    <App >
+        <pages>
+            <Page>
+                <content>
+
+                    <VBox fitContainer="true">
+                        <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="InboundDelDataSet" change="change" initialise="onInitSmartFilterBar">
+                            <smartFilterBar:controlConfiguration>
+                                <smartFilterBar:ControlConfiguration id="WarehouseNo" key="WarehouseNo" visibleInAdvancedArea="true" >
+
+                                </smartFilterBar:ControlConfiguration>
+                                <smartFilterBar:ControlConfiguration key="PurchaseOrder" visibleInAdvancedArea="true">
+                                </smartFilterBar:ControlConfiguration> 
+                                <smartFilterBar:ControlConfiguration key="InboundDelivery" visibleInAdvancedArea="true">
+                                </smartFilterBar:ControlConfiguration>
+                                <smartFilterBar:ControlConfiguration id = "idProduct" key="Product" visibleInAdvancedArea="true">
+                                </smartFilterBar:ControlConfiguration>
+                                <smartFilterBar:ControlConfiguration key="Container" visibleInAdvancedArea="true">
+                                </smartFilterBar:ControlConfiguration>
+                            </smartFilterBar:controlConfiguration>
+                        </smartFilterBar:SmartFilterBar>
+                        <smartTable:SmartTable id="listReport" entitySet="InboundDelDataSet" smartFilterId="smartFilterBar" 
+                        tableType="ResponsiveTable" useExportToExcel="false" useVariantManagement="false" 
+                        useTablePersonalisation="false" header="Line Items" showRowCount="true" 
+                        enableAutoBinding="true" requestAtLeastFields="Packspec,Length,Width,PutawayControlInd,StockRemoval"
+                        initiallyVisibleFields="WarehouseNo,Container,PurchaseOrder,InboundDelivery,InboundDeliveryItem,Product,Quantity,Height,Cyclecount" 
+                        demandPopin="true" class="sapUiResponsiveContentPadding" editTogglable="false" 
+                        app:useSmartToggle="true" beforeRebindTable="onBeforeRebind"
+                        afterRebindTable="onAfterRebind" >
+
+                            <Table growing="true" growingThreshold="50">
+                                <columns>
+                                	
+                                	  <Column id="PurchaseOrder" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "PurchaseOrder", "leadingProperty": "PurchaseOrder", "columnIndex": 2}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/PurchaseOrder/@sap:label}"></Text>
+                                    </Column>
+                                    <Column id="InboundDelivery" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "InboundDelivery", "leadingProperty": "InboundDelivery", "columnIndex": 3}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/InboundDelivery/@sap:label}"></Text>
+                                    </Column>
+                                    
+                                    <Column id="Packspec" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "Packspec", "leadingProperty": "Packspec", "columnIndex": 6}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/Packspec/@sap:label}"></Text>
+                                    </Column>
+                                    <Column id="Length" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "Length", "leadingProperty": "Length", "columnIndex": 7}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/Length/@sap:label}"></Text>
+                                    </Column>
+                                    <Column id="Width" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "Width", "leadingProperty": "Width", "columnIndex": 8}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/Width/@sap:label}"></Text>
+                                    </Column>
+                                    <Column id="PutawayControlInd" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "PutawayControlInd", "leadingProperty": "PutawayControlInd", "columnIndex": 9}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/PutawayControlInd/@sap:label}"></Text>
+                                    </Column>
+                                    <Column id="StockRemoval" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "StockRemoval", "leadingProperty": "StockRemoval", "columnIndex": 10}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/StockRemoval/@sap:label}"></Text>
+                                    </Column>
+                                    
+                                     <Column id="Storagesect" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "Storagesect", "leadingProperty": "Storagesect", "columnIndex": 11}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/Storagesect/@sap:label}"></Text>
+                                    </Column>
+                                    
+                                     <Column id="Cyclecount" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "Cyclecount", "leadingProperty": "Cyclecount", "columnIndex": 12}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/Cyclecount/@sap:label}"></Text>
+                                    </Column>
+                                       <Column id="Height" hAlign="Center">
+                                        <customData>
+                                            <core:CustomData key="p13nData" value='\{"columnKey": "Height", "leadingProperty": "Height", "columnIndex": 13}'/>
+                                        </customData>
+                                        <Text text="{/#InboundDelData/Height/@sap:label}"></Text>
+                                    </Column>
+                                    
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                    	<cells>
+                                            <Link text="{PurchaseOrder}" press="onPressPurchaseOrder"  />
+                                        </cells>
+                                        	<cells>
+                                            <Link text="{InboundDelivery}" press="onPressInboundDelivery"  />
+                                        </cells>
+                                        <cells>
+                                            <core:Icon press="onPressPackSpec" src="sap-icon://circle-task-2" color="{path:'Packspec', formatter:'.formatter.color'}"/>
+                                        </cells>
+                                        <cells>
+                                            <core:Icon press="onPressUOM" src="sap-icon://circle-task-2" color="{path:'Length', formatter:'.formatter.color'}"/>
+                                        </cells>
+                                        <cells>
+                                            <core:Icon press="onPressUOM" src="sap-icon://circle-task-2" color="{path:'Width', formatter:'.formatter.color'}"/>
+                                        </cells>
+                                        <cells>
+                                            <core:Icon press="onPress" src="sap-icon://circle-task-2" color="{path:'PutawayControlInd', formatter:'.formatter.color'}"/>
+                                        </cells>
+                                        <cells>
+                                            <core:Icon press="onPress" src="sap-icon://circle-task-2" color="{path:'StockRemoval', formatter:'.formatter.color'}"/>
+                                        </cells>
+                                        
+                                         <cells>
+                                            <core:Icon press="onPress" src="sap-icon://circle-task-2" color="{path:'Storagesect', formatter:'.formatter.color'}"/>
+                                        </cells>
+                                        
+                                         <cells>
+                                            <core:Icon press="onPress" src="sap-icon://circle-task-2" color="{path:'Cyclecount', formatter:'.formatter.color'}"/>
+                                        </cells>
+                                         <cells>
+                                            <core:Icon press="onPress" src="sap-icon://circle-task-2" color="{path:'Height', formatter:'.formatter.color'}"/>
+                                        </cells>
+
+
+                                    </ColumnListItem>
+                                </items>
+                            </Table>
+                            <smartTable:layoutData>
+                                <FlexItemData growFactor="1" baseSize="0%"/>
+                            </smartTable:layoutData>
+                        </smartTable:SmartTable> 
+
+                    </VBox>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>

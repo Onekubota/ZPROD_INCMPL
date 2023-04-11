@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZEWM_PROD_INCOMPL_CHECK_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="InboundDelData" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="InboundDelivery"/>
+                    <PropertyRef Name="InboundDeliveryItem"/>
+                </Key>
+                <Property Name="Storagesect" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Stor.Sect.Ind." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WarehouseNo" Type="Edm.String" Nullable="false" MaxLength="4" sap:filter-restriction="single-value" sap:unicode="false" sap:label="WH #" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/>
+                <Property Name="Cyclecount" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Cyc. Coun. Ind." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PurchaseOrder" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Purchasing Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/>
+                <Property Name="InboundDelivery" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Inbound Delivery" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="InboundDeliveryItem" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Item" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Product" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/>
+                <Property Name="Quantity" Type="Edm.String" Nullable="false" MaxLength="17" sap:unicode="false" sap:label="Quantity" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Length" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Length" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Height" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Height" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Width" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Width" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PutawayControlInd" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Putaway Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StockRemoval" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Stock Removal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Container" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Container" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:value-list="standard"/>
+                <Property Name="Packspec" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Pack Speck" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DefaultWhno" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WarehouseNo"/>
+                </Key>
+                <Property Name="Whno" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WarehouseNo" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DynTile" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="number"/>
+                </Key>
+                <Property Name="numberState" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="info" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="number" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="VL_SH_xSCWMxSH_LGNUM" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LGNUM"/>
+                </Key>
+                <Property Name="LGNUM" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Warehouse No." sap:sortable="false"/>
+                <Property Name="LNUMT" Type="Edm.String" MaxLength="40" sap:label="Description" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VL_SH_H_EKKO" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EBELN"/>
+                </Key>
+                <Property Name="EBELN" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Purchasing Document" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VL_SH_xSCMBxMDL_PROD_BASE" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MATID"/>
+                    <PropertyRef Name="MATNR"/>
+                    <PropertyRef Name="MAKTX"/>
+                    <PropertyRef Name="MATKL"/>
+                    <PropertyRef Name="PRODUCT_TYPE"/>
+                    <PropertyRef Name="ATTYP"/>
+                    <PropertyRef Name="EAN11"/>
+                    <PropertyRef Name="PMTYP"/>
+                    <PropertyRef Name="GRPTYPE"/>
+                    <PropertyRef Name="GROUPVALUE"/>
+                    <PropertyRef Name="ALTPN"/>
+                    <PropertyRef Name="APNTYPE"/>
+                    <PropertyRef Name="LANGU"/>
+                </Key>
+                <Property Name="MATID" Type="Edm.Binary" Nullable="false" sap:label="Product" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MATNR" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Product" sap:sortable="false"/>
+                <Property Name="MAKTX" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Product Desc." sap:sortable="false"/>
+                <Property Name="MATKL" Type="Edm.String" Nullable="false" MaxLength="9" sap:display-format="UpperCase" sap:label="Material Group" sap:sortable="false"/>
+                <Property Name="PRODUCT_TYPE" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Product Type" sap:sortable="false"/>
+                <Property Name="ATTYP" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Trdg Goods Cat." sap:sortable="false"/>
+                <Property Name="EAN11" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="EAN/UPC" sap:sortable="false"/>
+                <Property Name="PMTYP" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Pkging Matl Ty." sap:sortable="false"/>
+                <Property Name="GRPTYPE" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Product Group Type" sap:sortable="false"/>
+                <Property Name="GROUPVALUE" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Product Group" sap:sortable="false"/>
+                <Property Name="ALTPN" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Alt. Prod. No." sap:sortable="false"/>
+                <Property Name="APNTYPE" Type="Edm.String" Nullable="false" MaxLength="2" sap:display-format="UpperCase" sap:label="Alt. Prod. No. Type" sap:sortable="false"/>
+                <Property Name="LANGU" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VL_SH_xSCWMxSH_PROD_FUZZY" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="LANGU"/>
+                    <PropertyRef Name="MAKTX"/>
+                    <PropertyRef Name="MATID"/>
+                    <PropertyRef Name="MATNR"/>
+                </Key>
+                <Property Name="ALTPN" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Alt. Prod. No." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="APNTYPE" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Alt. Prod. No. Type" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EXT_MATNR" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Ext. Product" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LANGU" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language" sap:sortable="false"/>
+                <Property Name="MAKTX" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Product Desc." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MATID" Type="Edm.Binary" Nullable="false" sap:label="Product" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MATNR" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Product" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PARTNER" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="BusinessPartner" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PRTMAKTX" Type="Edm.String" MaxLength="40" sap:label="PrtrProd. Desc." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PRTMATNR" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Partner ProdNo." sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SEARCH" Type="Edm.String" MaxLength="100" sap:display-format="UpperCase" sap:label="Search string" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VL_SH_xSAPAPOxGENART" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MAKTX"/>
+                    <PropertyRef Name="MATNR"/>
+                </Key>
+                <Property Name="MAKTX" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Product Description" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MATNR_GA" Type="Edm.String" MaxLength="40" sap:display-format="UpperCase" sap:label="Generic Product" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MATNR" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Product" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="VL_SH_ZVH_CONTAINER" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="REFDOCNO_EXTASN"/>
+                </Key>
+                <Property Name="REFDOCNO_EXTASN" Type="Edm.String" Nullable="false" MaxLength="35" sap:display-format="UpperCase" sap:label="Document Number" sap:sortable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZEWM_PROD_INCOMPL_CHECK_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="InboundDelDataSet" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.InboundDelData" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DefaultWhnoSet" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.DefaultWhno" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DynTileSet" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.DynTile" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="VL_SH_xSCWMxSH_LGNUM" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.VL_SH_xSCWMxSH_LGNUM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true"/>
+                <EntitySet Name="VL_SH_H_EKKO" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.VL_SH_H_EKKO" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true"/>
+                <EntitySet Name="VL_SH_xSCMBxMDL_PROD_BASE" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.VL_SH_xSCMBxMDL_PROD_BASE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true"/>
+                <EntitySet Name="VL_SH_xSCWMxSH_PROD_FUZZY" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.VL_SH_xSCWMxSH_PROD_FUZZY" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true"/>
+                <EntitySet Name="VL_SH_xSAPAPOxGENART" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.VL_SH_xSAPAPOxGENART" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true"/>
+                <EntitySet Name="VL_SH_ZVH_CONTAINER" EntityType="ZEWM_PROD_INCOMPL_CHECK_SRV.VL_SH_ZVH_CONTAINER" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1" sap:countable="true"/>
+            </EntityContainer>
+            <Annotations Target="ZEWM_PROD_INCOMPL_CHECK_SRV.InboundDelData/WarehouseNo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Search Help for Warehouse Number"/>
+                        <PropertyValue Property="CollectionPath" String="VL_SH_xSCWMxSH_LGNUM"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WarehouseNo"/>
+                                    <PropertyValue Property="ValueListProperty" String="LGNUM"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="LNUMT"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEWM_PROD_INCOMPL_CHECK_SRV.InboundDelData/PurchaseOrder" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Search Help for table EKKO"/>
+                        <PropertyValue Property="CollectionPath" String="VL_SH_H_EKKO"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="PurchaseOrder"/>
+                                    <PropertyValue Property="ValueListProperty" String="EBELN"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEWM_PROD_INCOMPL_CHECK_SRV.InboundDelData/Product" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Search Help for Products"/>
+                        <PropertyValue Property="CollectionPath" String="VL_SH_xSCMBxMDL_PROD_BASE"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="MATNR"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MAKTX"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEWM_PROD_INCOMPL_CHECK_SRV.InboundDelData/Product" Qualifier="xSCWMxSH_PROD_FUZZY" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Search on Product Names and Texts"/>
+                        <PropertyValue Property="CollectionPath" String="VL_SH_xSCWMxSH_PROD_FUZZY"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="MATNR"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MAKTX"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="EXT_MATNR"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ALTPN"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="APNTYPE"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PRTMATNR"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PRTMAKTX"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PARTNER"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEWM_PROD_INCOMPL_CHECK_SRV.InboundDelData/Product" Qualifier="xSAPAPOxGENART" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Search for Generic Products and Variants"/>
+                        <PropertyValue Property="CollectionPath" String="VL_SH_xSAPAPOxGENART"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Product"/>
+                                    <PropertyValue Property="ValueListProperty" String="MATNR"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MAKTX"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MATNR_GA"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZEWM_PROD_INCOMPL_CHECK_SRV.InboundDelData/Container" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Search ehlp"/>
+                        <PropertyValue Property="CollectionPath" String="VL_SH_ZVH_CONTAINER"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Container"/>
+                                    <PropertyValue Property="ValueListProperty" String="REFDOCNO_EXTASN"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://s4d300.kubota-kna.com:44300/sap/opu/odata/sap/ZEWM_PROD_INCOMPL_CHECK_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://s4d300.kubota-kna.com:44300/sap/opu/odata/sap/ZEWM_PROD_INCOMPL_CHECK_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
